@@ -1,5 +1,4 @@
 import fetch from 'node-fetch';
-import jq from 'node-jq';
 
 const javascript = `module.exports = async function (req) {
 const socialSecurityNumber = req.args.body.socialSecurityNumber;
@@ -18,7 +17,6 @@ return {
 };
 }`;
 
-
 const url = 'https://api.basistheory.com/proxies';
 const headers = {
     'BT-API-KEY': '',
@@ -32,25 +30,16 @@ const body = {
         'code': javascript
     },
     'application': {
-        'id': ''
+        'id': '1a7896cb-2dd3-4ca5-bef8-26fd31dfb1e3'
     },
     'require_auth': false
 };
 
-const addProxy = function async () {
+const addProxy = async function () {
     try {
-        return fetch(url, { body, headers, method }).then((response) => {
-            if (!response.ok) {
-                return response.json().then((r) => {
-
-                    throw r;
-                });
-            } else {
-
-                console.log(response);
-                return response;
-            }
-        });
+        const r = await fetch(url, { body: JSON.stringify(body), headers, method });
+        const rt = await r.json()
+        console.log(rt);
     } catch (e) {
         console.error(e);
 
