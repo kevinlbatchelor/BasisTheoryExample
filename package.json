@@ -4,6 +4,8 @@
   "main": "index.js",
   "scripts": {
     "fire": "node basis.js",
+    "fireRF": "node basisReactorFormula.js",
+    "fireR": "node basisReactor.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
