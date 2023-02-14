@@ -16,7 +16,7 @@ module.exports = async function (req) {
 
 const url = 'https://api.basistheory.com/reactors';
 const headers = {
-    'BT-API-KEY': 'key_LT2H1icWadQywc1niWmD9U',
+    'BT-API-KEY': '',
     'Content-Type': 'application/json'
 };
 const method = 'POST';
